@@ -1,0 +1,6 @@
+# CC2520DK Makefile
+
+CONTIKI_TARGET_SOURCEFILES += contiki-2520dk-platform.c
+CLEAN += *.cc2520dk 
+
+include $(CONTIKI)/platform/cc2520dk/Makefile.common
