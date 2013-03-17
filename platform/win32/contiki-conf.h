@@ -5,6 +5,8 @@
 #define CC_CONF_FASTCALL __fastcall
 #define CC_CONF_INLINE   __inline
 
+#define ARCH_DOESNT_NEED_ALIGNED_STRUCTS 1
+
 
 #if _USRDLL
 #define CCIF __declspec(dllimport)
@@ -15,12 +17,14 @@
 
 #ifdef __CYGWIN__
 int strcasecmp(const char*, const char*);
+int strncasecmp(const char*, const char*, size_t);
 char* strdup(const char*);
 #else /* __CYGWIN__ */
 #define HAVE_SNPRINTF
-#define snprintf   _snprintf
-#define strcasecmp _stricmp
-#define strdup     _strdup
+#define snprintf    _snprintf
+#define strcasecmp  _stricmp
+#define strncasecmp _strnicmp
+#define strdup      _strdup
 #endif /* __CYGWIN__ */
 
 
